@@ -11,31 +11,54 @@
     <aside class="sidebar">
       <div class="sidebar-top">
         <a href="index.html" class="brand">
+          <span class="avatar" aria-hidden="true">YJ</span>
           <span class="brand-name">Yeonji Ji</span>
-          <span class="brand-title">Data Scientist</span>
+          <span class="brand-title">Doing Science with AI</span>
         </a>
         <nav class="nav">
-          <a href="index.html" class="nav-link">Home</a>
-          <a href="blog.html" class="nav-link">Blog</a>
-          <a href="projects.html" class="nav-link">Projects</a>
-          <a href="about.html" class="nav-link active">About Me</a>
+          <a href="index.html" class="nav-link"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5"/><path d="M6 9.5V20h12V9.5"/><path d="M10 20v-5h4v5"/></svg></span>Home</a>
+          <a href="blog.html" class="nav-link"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4l10.5-10.5a2 2 0 0 0 0-2.8l-1.2-1.2a2 2 0 0 0-2.8 0L4 16v4Z"/><path d="M13.5 6.5l3 3"/></svg></span>Blog</a>
+          <a href="projects.html" class="nav-link"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v2.5"/><circle cx="12" cy="4" r="0.9" fill="currentColor" stroke="none"/><rect x="5" y="8.5" width="14" height="10" rx="2.5"/><circle cx="9" cy="13" r="1.1" fill="currentColor" stroke="none"/><circle cx="15" cy="13" r="1.1" fill="currentColor" stroke="none"/><path d="M9 16.5h6"/><path d="M3 12h2"/><path d="M19 12h2"/></svg></span>Projects</a>
+          <a href="about.html" class="nav-link active"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20c1.4-3.6 4.4-5.5 7.5-5.5s6.1 1.9 7.5 5.5"/></svg></span>About Me</a>
         </nav>
       </div>
       <div class="sidebar-bottom">
         <h2 class="contact-heading">Contact</h2>
-        <ul class="contact-list">
-          <li><a href="mailto:fortunate.yj@gmail.com">Email</a></li>
-          <li><a href="https://www.linkedin.com/in/yeonji-ji-44a6a5175/" target="_blank" rel="noopener">LinkedIn</a></li>
-        </ul>
+        <div class="contact-buttons">
+          <a class="contact-btn" href="mailto:fortunate.yj@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm1.4 2 7.6 6.1L19.6 7H4.4ZM4 8.4V17h16V8.4l-8 6.4-8-6.4Z"/></svg>
+          </a>
+          <a class="contact-btn" href="https://www.linkedin.com/in/yeonji-ji-44a6a5175/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM3.2 8.75h3.5V21H3.2V8.75Zm6.4 0h3.36v1.68h.05c.47-.87 1.6-1.79 3.3-1.79 3.53 0 4.18 2.28 4.18 5.25V21h-3.5v-5.6c0-1.34-.03-3.06-1.87-3.06-1.87 0-2.16 1.45-2.16 2.96V21H9.6V8.75Z"/></svg>
+          </a>
+        </div>
       </div>
     </aside>
 
-    <main class="content">
-      <section class="stub">
-        <h1>About Me</h1>
-        <p class="stub-text">This page is being rebuilt. Check back soon.</p>
-      </section>
-    </main>
+    <div class="main-area">
+      <div class="topbar">
+        <form class="search" role="search" onsubmit="return false;">
+          <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="search" placeholder="Search..." aria-label="Search" />
+        </form>
+      </div>
+
+      <div class="body-columns">
+        <main class="content">
+          <section class="stub">
+            <h1>About Me</h1>
+            <p class="stub-text">This page is being rebuilt. Check back soon.</p>
+          </section>
+        </main>
+
+        <aside class="right-rail">
+          <div class="rail-box">
+            <h2>Recently Updated</h2>
+            <p class="rail-empty">No entries yet.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
   </div>
 </body>
 </html>
