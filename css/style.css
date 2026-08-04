@@ -330,6 +330,28 @@ input:focus-visible {
   font-size: 13.5px;
 }
 
+.project-mini {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 4px 0 11px;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.project-mini .title {
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+.project-mini .meta {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
 /* =========================
    Stub pages (Blog / Projects / About Me)
 ========================= */
@@ -343,6 +365,83 @@ input:focus-visible {
   line-height: 1.75;
   color: var(--prose);
   margin: 0;
+}
+
+/* =========================
+   Projects list
+========================= */
+.project-list {
+  max-width: 1000px;
+}
+
+.project-row {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 26px;
+  align-items: start;
+  padding: 22px 0;
+  border-top: 1px solid var(--border);
+}
+
+.project-row:hover {
+  background: #f7f7fb;
+}
+
+.project-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.project-year {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  color: var(--text);
+}
+
+.project-kind {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.project-body {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.project-title {
+  font-family: var(--serif);
+  font-size: 21px;
+  line-height: 1.28;
+  color: var(--text);
+}
+
+.project-blurb {
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--muted);
+  max-width: 60ch;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-top: 3px;
+}
+
+.project-tags span {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  padding: 3px 7px;
 }
 
 /* =========================
