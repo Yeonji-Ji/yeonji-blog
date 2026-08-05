@@ -500,3 +500,159 @@ input:focus-visible {
     gap: 32px;
   }
 }
+
+/* =========================
+   Blog / Posts (Jekyll)
+========================= */
+.back-link {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 22px;
+}
+
+.back-link:hover {
+  color: var(--text);
+}
+
+.post-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 1000px;
+}
+
+.post-list li {
+  padding: 22px 0;
+  border-top: 1px solid var(--border);
+}
+
+.post-list a {
+  font-family: var(--serif);
+  font-size: 21px;
+  line-height: 1.3;
+  color: var(--text);
+}
+
+.post-date {
+  display: block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--faint);
+  margin-top: 4px;
+}
+
+.post-list p {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 8px 0 0;
+}
+
+.post {
+  max-width: 640px;
+}
+
+.post-meta {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin: 14px 0 26px;
+}
+
+.post-content p {
+  font-family: var(--serif);
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--prose);
+  margin: 0 0 20px;
+}
+
+.post-content h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  margin: 34px 0 12px;
+}
+
+.post-content h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 18px;
+  margin: 28px 0 10px;
+}
+
+.post-content a {
+  border-bottom: 1px solid #d8c3c7;
+}
+
+.post-content a:hover {
+  border-bottom-color: var(--accent);
+}
+
+.post-content blockquote {
+  margin: 0 0 24px;
+  padding: 2px 0 2px 18px;
+  border-left: 2px solid var(--accent);
+}
+
+.post-content blockquote p {
+  font-style: italic;
+  margin: 0;
+}
+
+.post-content code {
+  font-family: var(--mono);
+  font-size: 0.9em;
+  background: #f7f7fb;
+  padding: 0.15em 0.4em;
+}
+
+.post-content pre {
+  background: #f7f7fb;
+  border: 1px solid var(--border);
+  padding: 16px 18px;
+  overflow-x: auto;
+  margin: 0 0 24px;
+}
+
+.post-content pre code {
+  background: none;
+  padding: 0;
+}
+
+.post-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 24px;
+  font-size: 13.5px;
+}
+
+.post-content th,
+.post-content td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.post-content th {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  margin: 8px 0 24px;
+}

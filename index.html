@@ -1,83 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yeonji Ji | Home</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
-</head>
-<body>
-  <div class="layout">
-    <aside class="sidebar">
-      <a href="index.html" class="brand">
-        <span class="brand-name">Yeonji Ji</span>
-        <span class="brand-title">Doing Science with AI</span>
-      </a>
+---
+layout: default
+title: Home
+nav: home
+mainclass: main--home
+---
+<section class="hero">
+  <h1>Hi, I'm Yeonji Ji.</h1>
 
-      <nav class="nav">
-        <a href="index.html" class="nav-link active">Home</a>
-        <a href="blog.html" class="nav-link">Writing</a>
-        <a href="projects.html" class="nav-link">Projects</a>
-        <a href="about.html" class="nav-link">About me</a>
-      </nav>
-
-      <form class="search" role="search" onsubmit="return false;">
-        <input type="search" placeholder="Search" aria-label="Search" />
-        <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      </form>
-
-      <div class="sidebar-spacer"></div>
-
-      <ul class="contact-list">
-        <li><a href="mailto:fortunate.yj@gmail.com">Email</a></li>
-        <li><a href="https://www.linkedin.com/in/yeonji-ji-44a6a5175/" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li><a href="https://github.com/Yeonji-Ji" target="_blank" rel="noopener">GitHub</a></li>
-        <li><a href="#" target="_blank" rel="noopener">Google Scholar</a></li>
-      </ul>
-    </aside>
-
-    <main class="main main--home">
-      <section class="hero">
-        <h1>Hi, I'm Yeonji Ji.</h1>
-
-        <div class="lead">
-          <p>
-            I’m a postdoctoral researcher working where AI and chemistry meet, with a focus on
-            f-block elements and the data foundations behind scientific discovery. I’m curious
-            about how statistics, language models, and agentic AI can help us ask sharper
-            questions, connect ideas, and uncover patterns that might otherwise go unnoticed.
-          </p>
-          <p>
-            My research roots are in computational chemistry and computer-aided drug design, and
-            I hold a Ph.D. in Biochemistry. What keeps me excited is the space where chemistry,
-            data, and intelligent systems come together.
-          </p>
-        </div>
-      </section>
-
-      <div class="facts">
-        <div><span class="fact-label">Role</span><span class="fact-value">Postdoctoral Researcher</span></div>
-        <div><span class="fact-label">Field</span><span class="fact-value">AI for Chemistry</span></div>
-        <div><span class="fact-label">Based</span><span class="fact-value">Fordham University</span></div>
-        <div><span class="fact-label">Ph.D.</span><span class="fact-value">Biochemistry</span></div>
-      </div>
-
-      <div class="recent-columns">
-        <section class="recent-section writing">
-          <div class="recent-head"><h2>Recent writing</h2></div>
-          <p class="recent-empty">No posts yet — check back soon.</p>
-        </section>
-        <section class="recent-section projects">
-          <div class="recent-head"><h2>Recent projects</h2></div>
-          <a class="project-mini" href="https://github.com/Yeonji-Ji/molgen-llm-bench" target="_blank" rel="noopener">
-            <span class="title">molgen-llm-bench</span>
-            <span class="meta">2026 &middot; Research</span>
-          </a>
-        </section>
-      </div>
-    </main>
+  <div class="lead">
+    <p>
+      I’m a postdoctoral researcher working where AI and chemistry meet, with a focus on
+      f-block elements and the data foundations behind scientific discovery. I’m curious
+      about how statistics, language models, and agentic AI can help us ask sharper
+      questions, connect ideas, and uncover patterns that might otherwise go unnoticed.
+    </p>
+    <p>
+      My research roots are in computational chemistry and computer-aided drug design, and
+      I hold a Ph.D. in Biochemistry. What keeps me excited is the space where chemistry,
+      data, and intelligent systems come together.
+    </p>
   </div>
-</body>
-</html>
+</section>
+
+<div class="facts">
+  <div><span class="fact-label">Role</span><span class="fact-value">Postdoctoral Researcher</span></div>
+  <div><span class="fact-label">Field</span><span class="fact-value">AI for Chemistry</span></div>
+  <div><span class="fact-label">Based</span><span class="fact-value">Fordham University</span></div>
+  <div><span class="fact-label">Ph.D.</span><span class="fact-value">Biochemistry</span></div>
+</div>
+
+<div class="recent-columns">
+  <section class="recent-section writing">
+    <div class="recent-head"><h2>Recent writing</h2></div>
+    {% if site.posts.size == 0 %}
+    <p class="recent-empty">No posts yet — check back soon.</p>
+    {% else %}
+    {% for post in site.posts limit: 3 %}
+    <a class="project-mini" href="{{ site.baseurl }}{{ post.url }}">
+      <span class="title">{{ post.title }}</span>
+      <span class="meta">{{ post.date | date: "%Y" }}</span>
+    </a>
+    {% endfor %}
+    {% endif %}
+  </section>
+  <section class="recent-section projects">
+    <div class="recent-head"><h2>Recent projects</h2></div>
+    <a class="project-mini" href="https://github.com/Yeonji-Ji/molgen-llm-bench" target="_blank" rel="noopener">
+      <span class="title">molgen-llm-bench</span>
+      <span class="meta">2026 &middot; Research</span>
+    </a>
+  </section>
+</div>

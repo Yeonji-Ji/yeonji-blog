@@ -1,0 +1,25 @@
+title: Yeonji Ji
+description: Doing Science with AI
+url: "https://yeonji-ji.github.io"
+baseurl: "/yeonji-blog"
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  parse_block_html: true
+
+permalink: /posts/:year/:month/:day/:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      nav: writing
+
+exclude:
+  - archive/
+  - README.md
+  - .claude/

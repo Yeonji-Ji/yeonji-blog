@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yeonji Ji | {{ page.title }}</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ site.baseurl }}/css/style.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <a href="{{ site.baseurl }}/index.html" class="brand">
+        <span class="brand-name">Yeonji Ji</span>
+        <span class="brand-title">Doing Science with AI</span>
+      </a>
+
+      <nav class="nav">
+        <a href="{{ site.baseurl }}/index.html" class="nav-link{% if page.nav == 'home' %} active{% endif %}">Home</a>
+        <a href="{{ site.baseurl }}/blog.html" class="nav-link{% if page.nav == 'writing' %} active{% endif %}">Writing</a>
+        <a href="{{ site.baseurl }}/projects.html" class="nav-link{% if page.nav == 'projects' %} active{% endif %}">Projects</a>
+        <a href="{{ site.baseurl }}/about.html" class="nav-link{% if page.nav == 'about' %} active{% endif %}">About me</a>
+      </nav>
+
+      <form class="search" role="search" onsubmit="return false;">
+        <input type="search" placeholder="Search" aria-label="Search" />
+        <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </form>
+
+      <div class="sidebar-spacer"></div>
+
+      <ul class="contact-list">
+        <li><a href="mailto:fortunate.yj@gmail.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/yeonji-ji-44a6a5175/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/Yeonji-Ji" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="#" target="_blank" rel="noopener">Google Scholar</a></li>
+      </ul>
+    </aside>
+
+    <main class="main{% if page.mainclass %} {{ page.mainclass }}{% endif %}">
+      {{ content }}
+    </main>
+  </div>
+</body>
+</html>
