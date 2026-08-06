@@ -4,7 +4,7 @@ title: "I asked four chat AIs to design f-block extractants"
 date: 2026-08-05
 ---
 
-Most of us now use chat AI for small things: drafting an email, looking something up. I wanted to see what happens when you point the same tools at a real research task. So I gave four of them one prompt and asked each for ten new molecules.
+We now use chat AI for everything from drafting an email to working through a hard problem. So I wondered how it would do on a real research task. I gave four of them one prompt and asked each for ten new molecules.
 
 All 40 came back as valid structures, and almost all of them respected the constraints I set. But five were compounds that had already been published, and the novelty constraint I had written into the prompt caught only two of them. Sorting out what was designed from what was recalled turned out to be the interesting part.
 
