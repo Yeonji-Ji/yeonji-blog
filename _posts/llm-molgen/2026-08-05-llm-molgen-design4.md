@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Asking four chat AIs to design f-block extractants"
+title: "I asked four chat AIs to design f-block extractants"
 date: 2026-08-05
 ---
 
