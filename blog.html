@@ -4,20 +4,25 @@ title: Writing
 nav: writing
 permalink: /blog.html
 ---
-{% if site.posts.size == 0 %}
-<section class="stub">
-  <h1 class="page-h1">Writing</h1>
-  <p class="stub-text">This page is being rebuilt. Check back soon.</p>
-</section>
-{% else %}
 <h1 class="page-h1">Writing</h1>
-<ul class="post-list">
-  {% for post in site.posts %}
-  <li>
-    <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-    <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
-    {% if post.excerpt %}<p>{{ post.excerpt | strip_html | truncate: 160 }}</p>{% endif %}
-  </li>
-  {% endfor %}
-</ul>
-{% endif %}
+
+<p id="search-status" class="stub-text" hidden></p>
+<div id="search-results"></div>
+
+<div id="post-list-default">
+  {% if site.posts.size == 0 %}
+  <div class="stub">
+    <p class="stub-text">This page is being rebuilt. Check back soon.</p>
+  </div>
+  {% else %}
+  <ul class="post-list">
+    {% for post in site.posts %}
+    <li>
+      <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+      <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+      {% if post.excerpt %}<p>{{ post.excerpt | strip_html | truncate: 160 }}</p>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</div>
