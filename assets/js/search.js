@@ -30,6 +30,8 @@
   var input = document.querySelector('.search input[type="search"]');
   if (input) input.value = q;
   if (defaultEl) defaultEl.hidden = true;
+  var titleEl = document.getElementById("page-title");
+  if (titleEl) titleEl.hidden = true;
 
   fetch(root + "/search.json")
     .then(function (res) { return res.json(); })
@@ -66,7 +68,7 @@
   }
 
   function group(label, items) {
-    var html = '<h2 class="page-h1">' + label + '</h2><ul class="post-list">';
+    var html = '<div class="recent-head"><h2>' + label + '</h2></div><ul class="post-list">';
     items.forEach(function (p) {
       var isProject = p.type === "project";
       var href = isProject ? p.url : root + p.url;
