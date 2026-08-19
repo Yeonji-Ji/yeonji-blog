@@ -52,14 +52,18 @@
       statusEl.hidden = false;
       statusEl.textContent = matches.length
         ? "Results for “" + q + "” (" + matches.length + ")"
-        : "No posts match “" + q + "”.";
+        : "No results for “" + q + "”.";
     }
     if (!matches.length) return;
 
     var html = '<ul class="post-list">';
     matches.forEach(function (p) {
-      html += "<li><a href=\"" + root + p.url + "\">" + escapeHtml(p.title) + "</a>" +
-        '<span class="post-date">' + p.date + "</span></li>";
+      var isProject = p.type === "project";
+      var href = isProject ? p.url : root + p.url;
+      var target = isProject ? ' target="_blank" rel="noopener"' : "";
+      var kind = isProject ? "Project" : "Post";
+      html += "<li><a href=\"" + href + "\"" + target + ">" + escapeHtml(p.title) + "</a>" +
+        '<span class="post-date">' + kind + " &middot; " + p.date + "</span></li>";
     });
     html += "</ul>";
     resultsEl.innerHTML = html;

@@ -2,13 +2,25 @@
 layout: null
 permalink: /search.json
 ---
+{% assign total_projects = site.data.projects.size %}
 [
 {% for post in site.posts %}
   {
+    "type": "post",
     "title": {{ post.title | jsonify }},
     "url": {{ post.url | jsonify }},
     "date": {{ post.date | date: "%Y-%m-%d" | jsonify }},
     "content": {{ post.content | strip_html | normalize_whitespace | jsonify }}
+  }{% if forloop.last and total_projects == 0 %}{% else %},{% endif %}
+{% endfor %}
+{% for p in site.data.projects %}
+  {% assign tags_str = p.tags | join: " " %}
+  {
+    "type": "project",
+    "title": {{ p.title | jsonify }},
+    "url": {{ p.url | jsonify }},
+    "date": {{ p.year | jsonify }},
+    "content": {{ p.blurb | append: " " | append: tags_str | jsonify }}
   }{% unless forloop.last %},{% endunless %}
 {% endfor %}
 ]

@@ -45,9 +45,15 @@ mainclass: main--home
   </section>
   <section class="recent-section projects">
     <div class="recent-head"><h2>Recent projects</h2></div>
-    <a class="project-mini" href="https://github.com/Yeonji-Ji/molgen-llm-bench" target="_blank" rel="noopener">
-      <span class="title">molgen-llm-bench</span>
-      <span class="meta">2026 &middot; Research</span>
+    {% if site.data.projects.size == 0 %}
+    <p class="recent-empty">No projects yet — check back soon.</p>
+    {% else %}
+    {% for p in site.data.projects limit: 3 %}
+    <a class="project-mini" href="{{ p.url }}" target="_blank" rel="noopener">
+      <span class="title">{{ p.title }}</span>
+      <span class="meta">{{ p.year }} &middot; {{ p.kind }}</span>
     </a>
+    {% endfor %}
+    {% endif %}
   </section>
 </div>

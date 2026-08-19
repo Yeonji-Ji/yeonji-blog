@@ -1,0 +1,12 @@
+- title: molgen-llm-bench
+  year: 2026
+  kind: Research
+  url: https://github.com/Yeonji-Ji/molgen-llm-bench
+  blurb: >-
+    Benchmarks four LLM setups on generating novel lanthanide/actinide
+    extractant molecules (SMILES), scored against a shared cheminformatics
+    rubric.
+  tags:
+    - Python
+    - LLM eval
+    - Cheminformatics
