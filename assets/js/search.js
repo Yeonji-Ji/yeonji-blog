@@ -56,8 +56,18 @@
     }
     if (!matches.length) return;
 
-    var html = '<ul class="post-list">';
-    matches.forEach(function (p) {
+    var posts = matches.filter(function (p) { return p.type !== "project"; });
+    var projects = matches.filter(function (p) { return p.type === "project"; });
+
+    var html = "";
+    if (posts.length) html += group("Writing", posts);
+    if (projects.length) html += group("Projects", projects);
+    resultsEl.innerHTML = html;
+  }
+
+  function group(label, items) {
+    var html = '<h2 class="page-h1">' + label + '</h2><ul class="post-list">';
+    items.forEach(function (p) {
       var isProject = p.type === "project";
       var href = isProject ? p.url : root + p.url;
       var target = isProject ? ' target="_blank" rel="noopener"' : "";
@@ -66,7 +76,7 @@
         '<span class="post-date">' + kind + " &middot; " + p.date + "</span></li>";
     });
     html += "</ul>";
-    resultsEl.innerHTML = html;
+    return html;
   }
 
   function escapeHtml(s) {
