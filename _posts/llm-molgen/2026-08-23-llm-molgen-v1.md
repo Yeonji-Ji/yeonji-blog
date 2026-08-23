@@ -2,9 +2,11 @@
 layout: post
 title: "Which part of a prompt moves which axis of a molecule?"
 date: 2026-08-23
+series: LLM Molecule Generation
+series_index: 2
 ---
 
-In [the last post]({{ site.baseurl }}/posts/2026/08/05/llm-molgen-design4/) I described an experiment: four models — Claude, Claude Science, Gemini and ChatGPT — were given a single prompt from Zhang et al. and asked to design molecules. The prompt supplied the task content and goal along with a specific design focus and a list of example molecules as context.
+In [the last post]({{ site.baseurl }}/posts/2026/08/05/llm-molgen-design4/) I described an experiment: four models — Claude, Claude Science, Gemini and ChatGPT — were given a single prompt from [Zhang et al.](https://doi.org/10.1021/jacs.5c19738) and asked to design molecules. The prompt supplied the task content and goal along with a specific design focus and a list of example molecules as context.
 
 This time I added the paper's other three prompts, for four in total, and ran each five times. Each run asked for ten molecules, so **4 models × 4 prompts × 5 runs × 10 molecules = 800 candidates**. Only two things change between prompts: the **design focus** and the **evaluation table** of examples.
 

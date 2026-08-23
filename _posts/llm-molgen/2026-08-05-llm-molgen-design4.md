@@ -2,7 +2,11 @@
 layout: post
 title: "I asked four chat AIs to design f-block extractants"
 date: 2026-08-05
+series: LLM Molecule Generation
+series_index: 1
 ---
+
+*This is part 1 of a series. [Part 2]({{ site.baseurl }}/posts/2026/08/23/llm-molgen-v1/) varies the prompt and scales the experiment to 800 molecules.*
 
 We now use chat AI for everything from drafting an email to working through a hard problem. So I wondered how it would do on a real research task. I gave four of them one prompt and asked each for ten new molecules.
 

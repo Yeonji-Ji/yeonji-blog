@@ -557,6 +557,15 @@ input:focus-visible {
   max-width: 640px;
 }
 
+.post-series {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 10px;
+}
+
 .post-meta {
   font-family: var(--mono);
   font-size: 10px;

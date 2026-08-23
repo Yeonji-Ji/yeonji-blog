@@ -3,6 +3,9 @@ layout: default
 ---
 <a class="back-link" href="{{ site.baseurl }}/blog.html">&larr; Writing</a>
 <article class="post">
+  {% if page.series %}
+  <p class="post-series">{{ page.series | upcase }} &middot; {{ page.series_index | prepend: "0" | slice: -2, 2 }}</p>
+  {% endif %}
   <h1 class="page-h1">{{ page.title }}</h1>
   <p class="post-meta">{{ page.date | date: "%B %-d, %Y" }}</p>
   <div class="post-content">
