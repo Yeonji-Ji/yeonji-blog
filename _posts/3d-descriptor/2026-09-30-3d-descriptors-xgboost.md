@@ -61,7 +61,7 @@ We used it in two ways to train the model.
 
 ## Results of training
 
-To compare the effects, we ㅠㅕㅑㅣㅅ to six feature sets, from the previous 2D-descriptors, PD summary only, PI only, and combinations. Here "2D" means the ECFP fingerprint. All six sets also include RDKit descriptors, experimental conditions and metal properties, so "PD summary only" means PD summary in place of ECFP. 
+To compare the effects, we built six feature sets, from the previous 2D-descriptors, PD summary only, PI only, and combinations. Here "2D" means the ECFP fingerprint. All six sets also include RDKit descriptors, experimental conditions and metal properties, so "PD summary only" means PD summary in place of ECFP. 
 
 Denticity (fs2) was added as a control: if PD helped, we wanted to know whether it was more than just counting donor atoms.
 

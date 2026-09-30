@@ -8,8 +8,8 @@
   --border: #eaeaee;
   --border-soft: #eeeef2;
 
-  --serif: 'Spectral', Georgia, serif;
-  --sans: 'Inter Tight', Helvetica, sans-serif;
+  --serif: 'Source Serif 4', Georgia, serif;
+  --sans: 'Inter', Helvetica, sans-serif;
   --mono: 'JetBrains Mono', monospace;
 
   --sidebar-width: 246px;
@@ -89,7 +89,7 @@ input:focus-visible {
 }
 
 .brand-title {
-  font-size: 12.5px;
+  font-size: 13.5px;
   line-height: 1.6;
   color: var(--muted);
 }
@@ -102,7 +102,7 @@ input:focus-visible {
 
 .nav-link {
   align-self: flex-start;
-  font-size: 13.5px;
+  font-size: 14.5px;
   color: var(--muted);
   font-weight: 400;
   border-bottom: 1px solid transparent;
@@ -165,7 +165,7 @@ input:focus-visible {
   display: flex;
   flex-direction: column;
   gap: 7px;
-  font-size: 12.5px;
+  font-size: 13.5px;
 }
 
 .contact-list a {
@@ -192,7 +192,7 @@ input:focus-visible {
 .eyebrow-link {
   display: inline-block;
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--accent);
@@ -205,7 +205,7 @@ input:focus-visible {
 
 .page-h1 {
   font-family: var(--serif);
-  font-weight: 300;
+  font-weight: 400;
   font-size: 34px;
   letter-spacing: -0.015em;
   margin: 0 0 20px;
@@ -213,7 +213,7 @@ input:focus-visible {
 
 .page-intro {
   font-family: var(--serif);
-  font-size: 15.5px;
+  font-size: 16.5px;
   line-height: 1.75;
   color: var(--prose);
   max-width: 560px;
@@ -237,7 +237,7 @@ input:focus-visible {
 
 .hero h1 {
   font-family: var(--serif);
-  font-weight: 300;
+  font-weight: 400;
   font-size: 40px;
   line-height: 1.2;
   letter-spacing: -0.015em;
@@ -252,7 +252,7 @@ input:focus-visible {
 
 .hero .lead p {
   font-family: var(--serif);
-  font-size: 15.5px;
+  font-size: 16.5px;
   line-height: 1.75;
   color: var(--prose);
   margin: 0;
@@ -276,7 +276,7 @@ input:focus-visible {
 
 .fact-label {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--accent);
@@ -346,7 +346,7 @@ input:focus-visible {
 
 .project-mini .meta {
   font-family: var(--mono);
-  font-size: 9.5px;
+  font-size: 11px;
   letter-spacing: 0.07em;
   text-transform: uppercase;
   color: var(--faint);
@@ -361,7 +361,7 @@ input:focus-visible {
 
 .stub-text {
   font-family: var(--serif);
-  font-size: 15.5px;
+  font-size: 16.5px;
   line-height: 1.75;
   color: var(--prose);
   margin: 0;
@@ -402,7 +402,7 @@ input:focus-visible {
 
 .project-kind {
   font-family: var(--mono);
-  font-size: 9.5px;
+  font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--accent);
@@ -437,7 +437,7 @@ input:focus-visible {
 
 .project-tags span {
   font-family: var(--mono);
-  font-size: 9.5px;
+  font-size: 11px;
   letter-spacing: 0.05em;
   color: var(--muted);
   border: 1px solid var(--border);
@@ -507,7 +507,7 @@ input:focus-visible {
 .back-link {
   display: inline-block;
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--accent);
@@ -540,7 +540,7 @@ input:focus-visible {
 .post-date {
   display: block;
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.06em;
   color: var(--faint);
   margin-top: 4px;
@@ -559,7 +559,7 @@ input:focus-visible {
 
 .post-series {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
@@ -568,7 +568,7 @@ input:focus-visible {
 
 .post-meta {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--faint);
@@ -577,7 +577,7 @@ input:focus-visible {
 
 .post-content p {
   font-family: var(--serif);
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.8;
   color: var(--prose);
   margin: 0 0 20px;
@@ -641,7 +641,7 @@ input:focus-visible {
   width: 100%;
   border-collapse: collapse;
   margin: 0 0 24px;
-  font-size: 13.5px;
+  font-size: 14.5px;
 }
 
 .post-content th,
@@ -653,7 +653,7 @@ input:focus-visible {
 
 .post-content th {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--muted);
@@ -664,4 +664,18 @@ input:focus-visible {
   height: auto;
   border: 1px solid var(--border);
   margin: 8px 0 24px;
+}
+
+
+.post-content ul,
+.post-content ol {
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--prose);
+  margin: 0 0 20px;
+  padding-left: 1.3em;
+}
+.post-content li {
+  margin-bottom: 6px;
 }
