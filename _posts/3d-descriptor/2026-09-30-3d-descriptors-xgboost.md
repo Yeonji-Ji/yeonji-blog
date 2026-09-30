@@ -6,7 +6,7 @@ series: Adding 3D information
 series_index: 1
 ---
 
-In the JACS paper [Zhang et al.](https://doi.org/10.1021/jacs.5c19738), an XGBoost classifier was trained on ~8000 experimental rows covering 295 unique ligands to score newly generated molecules. In the dataset, each row had 1,860 features which included 2D ECFP fingerprints, RDKit descriptors, and experimental conditions and metal properties. These 2D features are identical for a given ligand regardless of the metal, and they carry no information about 3D binding geometry. 
+In the [JACS paper (Zhang et al.)](https://doi.org/10.1021/jacs.5c19738), an XGBoost classifier was trained on ~8000 experimental rows covering 295 unique ligands to score newly generated molecules. In the dataset, each row had 1,860 features which included 2D ECFP fingerprints, RDKit descriptors, and experimental conditions and metal properties. These 2D features are identical for a given ligand regardless of the metal, and they carry no information about 3D binding geometry. 
 
 So, we had a question here. Each row pairs a ligand with a specific metal. If we describe the actual 3D metal–ligand complex instead, can the model learn more?
 
@@ -96,6 +96,8 @@ Looking at the diagrams, most of the signal comes from two things: which atoms a
 ![Share of the model's feature importance taken by the 3D descriptors, on their own and alongside the 2D fingerprints.]({{ site.baseurl }}/assets/img/3d-descriptor/s1/fig5_importance_3d_block.png)
 
 All six feature sets also overfit to the training ligands and stalled at a similar CV accuracy. That suggests the number of ligands (267 in trainVal), rather than the choice of descriptor, is the main bottleneck. In short, more geometry did not mean more information.
+
+---
 
 You can find the results: [3d-descriptor-xgb](https://github.com/Yeonji-Ji/3d-descriptor-xgb).
 

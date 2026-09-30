@@ -10,3 +10,17 @@
     - Python
     - LLM eval
     - Cheminformatics
+
+- title: 3d-descriptor-xgb
+  year: 2026
+  kind: Research
+  url: https://github.com/Yeonji-Ji/3d-descriptor-xgb
+  blurb: >-
+    Tests whether 3D descriptors from g-xTB metal–ligand complexes,
+    summarized with persistent homology, improve an XGBoost model of
+    lanthanide/actinide extraction over 2D fingerprints.
+  tags:
+    - Python
+    - Persistent homology
+    - xTB
+    - XGBoost
