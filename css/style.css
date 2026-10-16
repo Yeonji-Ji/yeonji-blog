@@ -598,6 +598,13 @@ input:focus-visible {
   margin: 28px 0 10px;
 }
 
+.post-content h4 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 17px;
+  margin: 24px 0 8px;
+}
+
 .post-content a {
   border-bottom: 1px solid #d8c3c7;
 }

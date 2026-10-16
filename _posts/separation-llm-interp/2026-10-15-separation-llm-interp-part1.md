@@ -12,7 +12,7 @@ As models advance and begin to play a real role in scientific discovery, applyin
 
 When a model makes a scientific finding, MI in science can help determine, through internal analysis, whether that finding rests on verifiable scientific reasoning rather than on hallucination or memorized data. Science is also especially sensitive to errors, and MI may offer a chance to detect and prevent those risks in advance.
 
-## Main Goal of the Project
+### Main Goal of the Project
 
 In this project, we set out to see how a language model actually interprets scientific data and arrives at its answers.<br> 
 Because the focus is on **mechanistic interpretability**, we fine-tuned a small model on real chemistry data and analyzed its internals in several stages.
@@ -23,9 +23,9 @@ we first used probes to check what information each layer of the fine-tuned mode
 
 Code, notebooks, and results are in [separation-llm-interp](https://github.com/Yeonji-Ji/separation-llm-interp).
 
-## Fine-Tuning
+### Fine-Tuning
 
-### Data
+#### Data
 
 Source: monoamide extraction data compiled by L. Augustine ([ACS Sustainable Chem. Eng. 2024, 12, 16692](https://dx.doi.org/10.1021/acssuschemeng.4c06166)), as reprocessed in [SeparationLLM](https://github.com/jschrier/SeparationLLM/tree/main).<br>
 The task is to predict the distribution coefficient of a liquid–liquid extraction from the target metal, the extractant SMILES, and several experimental conditions.
@@ -51,7 +51,7 @@ The task is to predict the distribution coefficient of a liquid–liquid extract
 | M | D < 10 | ~22% |
 | H | D ≥ 10 | ~8% |
 
-### Training setup
+#### Training setup
 
 We performed a simple fine-tuning of Qwen3-1.7B:
 
@@ -63,9 +63,9 @@ After fine-tuning, test accuracy rose from 0.11 (base model) to 0.59. This is no
 
 ![Base vs fine-tuned accuracy]({{ site.baseurl }}/assets/img/separation-llm-interp/fig1_base_vs_ft_accuracy.png)
 
-## Starting Mechanistic Interpretability
+### Starting Mechanistic Interpretability
 
-### Probe: Layer Analysis
+#### Probe: Layer Analysis
 
 As outlined above, we began interpreting the fine-tuned model with simple methods. The first was to train a separate linear probe on each layer and check whether we could see inside the model at all.
 
@@ -83,7 +83,7 @@ With these probes, we examined where information first appears and where it stre
 - For the D class, the scores changed clearly with depth. In the fine-tuned model in particular, accuracy rose from 0.52 to 0.62 after layers 16–17, opening a clear gap from the base model.
 - We can read this as fine-tuning teaching the model to interpret the input conditions toward the answer in its later layers. However, this alone does not prove that the model actually uses that information. To test this, we examined the causal relationship further with **counterfactuals** (changing the input) and **patching** (swapping internal vectors).
 
-### Counterfactual
+#### Counterfactual
 
 We replaced the HNO<sub>3</sub> concentration in the input with a counterfactual value and checked whether the concentration information is actually used to predict D.
 
@@ -101,7 +101,7 @@ The cosine distance between the two activations rose sharply at layers 18–23, 
 
 ![Cosine distance between the 1 M and 6 M activations by layer]({{ site.baseurl }}/assets/img/separation-llm-interp/fig9_1M_vs_6M_activation_cos_dist_100_sample.png)
 
-### Patching
+#### Patching
 
 ![Patching schematic]({{ site.baseurl }}/assets/img/separation-llm-interp/part1_fig4_patching_schematic.png)
 

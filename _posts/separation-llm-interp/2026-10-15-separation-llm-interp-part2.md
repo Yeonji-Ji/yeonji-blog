@@ -12,11 +12,11 @@ In [Part 1]({{ site.baseurl }}/posts/2026/10/15/separation-llm-interp-part1/), w
 
 Code, notebooks, and results are in [separation-llm-interp](https://github.com/Yeonji-Ji/separation-llm-interp).
 
-## What is a sparse autoencoder?
+### What is a sparse autoencoder?
 
 An SAE is a specialized neural network widely used in mechanistic interpretability. Activation vectors inside an LLM usually do not represent a single concept cleanly. Because they hold more concepts than they have dimensions, a single neuron can represent several unrelated concepts. The SAE encoder maps the activation vector into a higher-dimensional latent space, giving distinct concepts enough room to be represented separately. In that expanded space, only the features that clearly stand out are kept, and, as the name "sparse" suggests, the rest stay at zero. The decoder then reconstructs the original vector from this small subset of active features. With this design, an SAE decomposes tangled internal activations into components that are easier for humans to interpret.
 
-## SAE on Layer 19
+### SAE on Layer 19
 
 We used a Top-K SAE with K = 64. The SAE encodes the layer-19 last-token vector into 2048 feature values, keeps only the 64 largest, and sets the rest to zero. It then decodes these 64 features back into a vector of the original size and is trained to minimize the difference between the reconstructed and original vectors (MSE loss). Training used the vectors extracted from the training and validation sets (2002 in total).
 
@@ -36,13 +36,13 @@ The correlations were similar on the validation and test sets, so we focused on 
 | 1615 | Low-D | −0.522 | −0.536 |
 | 245 | Low-D | −0.508 | −0.527 |
 
-## The 20 Features
+### The 20 Features
 
-### Metal
+#### Metal
 
 To check whether these features are related to the metal, we split the samples by metal and recomputed the correlations. The correlations largely held for Pu and U but almost disappeared for Th and Np. Because the feature–D correlation was not consistent across metals, it is hard to say that these features directly encode metal identity.
 
-### HNO<sub>3</sub> concentration
+#### HNO<sub>3</sub> concentration
 
 We ran several experiments on concentration. First, as in the counterfactual analysis in Part 1, we raised the HNO<sub>3</sub> concentration from 1 M to 6 M and looked at how the feature values changed. Consistent with the expectation that D increases with acid concentration, the high-D features increased and the low-D features decreased.
 
@@ -54,17 +54,17 @@ Similarly, when we raised the concentration stepwise from 0.5 M to 8 M, the high
 
 Next, we checked whether these features still correlate with D with the fixed concentration. We took one high-D and one low-D feature (1208 and 245), grouped samples with the same HNO<sub>3</sub> concentration, and computed the correlation between each feature and D within each concentration. If these features responded only to concentration, the correlation should be close to zero at a fixed concentration. Instead, 1208 still showed a positive correlation and 245 a negative one, suggesting that both features carry information beyond acid concentration.
 
-## Were These Features There From the Start?
+### Were These Features There From the Start?
 
 To check whether these prominent features emerged through fine-tuning, we fed the same 1 M / 6 M HNO<sub>3</sub> prompt pairs from many samples into both the base and fine-tuned models, extracted the layer-19 vectors, and compared their SAE feature values.
 The SAE reconstruction quality differed markedly (0.976 vs. 0.438), and only the fine-tuned model's D prediction responded to the concentration change. The high-D and low-D features were also active only in the fine-tuned model.
 In other words, at least in terms of these SAE features, the base model's layer 19 did not respond to HNO<sub>3</sub>, and these features emerged after fine-tuning.
 
-## Intervening on Features
+### Intervening on Features
 
 Beyond observing changes in feature values, we wanted to see how the model actually uses these features. To do so, we modified the features, reconstructed the layer-19 vector with the SAE, patched it into the fine-tuned model, and ran the prediction.
 
-### Setting feature values directly: one sample
+#### Setting feature values directly: one sample
 
 First, we picked one clear example and looked at how the prediction changes when we modify its features. We chose a sample at 1 M HNO<sub>3</sub> in which, when run through the fine-tuned model, feature 1208 was zero and only 245 was active. Using the D-class score at 6 M as the reference, we set features 1208 and 245 to various values and observed how the score changed.
 
@@ -86,13 +86,13 @@ Results:
 | 245 → 0 (turned off) | 1.17 | −0.01 |
 | 1208 → median + 245 → 0 | 1.28 | +0.10 |
 
-### Patching in 6 M feature values: one sample
+#### Patching in 6 M feature values: one sample
 
 Next, we replaced the features of the same sample with their values from the 6 M run. Replacing only 1208 gave a recovery of 9%, and replacing all 20 D-correlated features (10 high-D + 10 low-D) gave 44%.
 
 We then replaced features with their 6 M values in order of how much they changed between 1 M and 6 M. In this sample, 100 features changed between 1 M and 6 M, and replacing only the 20 most-changed ones already brought recovery to about 81%. So, at least in this sample, the HNO<sub>3</sub> effect is spread over multiple features but concentrated in a relatively small number of them.
 
-### Patching in 6 M feature values: many samples
+#### Patching in 6 M feature values: many samples
 
 Finally, we extended the same experiment to many samples. To make the effect clear, we used only samples whose D-class score differed by at least 0.3 between 1 M and 6 M, leaving 401 samples. In each sample, we replaced the top 1, 5, 10, 20, and 50 features (ranked by how much they changed from 1 M to 6 M) with their 6 M values, computed the recovery for each sample, and compared the medians.
 
@@ -116,7 +116,7 @@ Results:
 - Considering that, chemically, acid dependence differs from ligand to ligand and different factors determine the distribution coefficient, it may be quite natural that the features most responsive to acid concentration vary across samples and do not overlap much with the features most correlated with the D-class score.
 - In addition, as the fixed-concentration experiment showed, the D-correlated features, including 1208, carry information beyond acid concentration, suggesting a structure in which this information is combined later to predict D.
 
-## Conclusion
+### Conclusion
 
 Through these SAE experiments, we identified features in layer 19 that are related to D prediction and examined how these features, as well as others, change the D prediction when the acid concentration changes.
 
