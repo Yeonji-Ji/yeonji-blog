@@ -48,7 +48,8 @@ mainclass: main--home
     {% if site.data.projects.size == 0 %}
     <p class="recent-empty">No projects yet — check back soon.</p>
     {% else %}
-    {% for p in site.data.projects limit: 3 %}
+    {% assign projects = site.data.projects | reverse %}
+    {% for p in projects limit: 3 %}
     <a class="project-mini" href="{{ p.url }}" target="_blank" rel="noopener">
       <span class="title">{{ p.title }}</span>
       <span class="meta">{{ p.year }} &middot; {{ p.kind }}</span>
