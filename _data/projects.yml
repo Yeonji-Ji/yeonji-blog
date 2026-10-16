@@ -24,3 +24,16 @@
     - Persistent homology
     - xTB
     - XGBoost
+
+- title: separation-llm-interp
+  year: 2026
+  kind: Research
+  url: https://github.com/Yeonji-Ji/separation-llm-interp
+  blurb: >-
+    Fine-tunes Qwen3-1.7B to predict solvent-extraction distribution
+    coefficients, then probes, patches, and trains a sparse autoencoder
+    to find where and how the model uses HNO₃ concentration.
+  tags:
+    - Python
+    - Mechanistic interpretability
+    - LLM fine-tuning

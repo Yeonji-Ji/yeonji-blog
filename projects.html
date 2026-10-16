@@ -11,7 +11,8 @@ permalink: /projects.html
 <p class="stub-text">No projects yet — check back soon.</p>
 {% else %}
 <div class="project-list">
-  {% for p in site.data.projects %}
+  {% assign projects = site.data.projects | reverse %}
+  {% for p in projects %}
   <a class="project-row" href="{{ p.url }}" target="_blank" rel="noopener">
     <span class="project-meta">
       <span class="project-year">{{ p.year }}</span>
